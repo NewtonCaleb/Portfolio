@@ -3,13 +3,24 @@ const themeButton = document.querySelector(".theme-btn");
 const menuButton = document.querySelector(".menu-btn");
 const nav = document.querySelector("nav");
 const overlay = document.querySelector(".overlay");
-const initTheme = localStorage.getItem("theme") || "light";
+const modals = {};
+document.querySelectorAll(".modal").forEach((el) => {
+  modals[el.id] = el;
+});
+
+document.querySelectorAll(".project").forEach((el) => {
+  el.addEventListener("click", (e) => {
+    toggleModal(e.currentTarget.id);
+  });
+});
+
+const initTheme = localStorage.getItem("theme") || "dark";
 if (!menuButton || !nav) {
   console.error("elements are missing");
 }
 
-if (initTheme !== "light") {
-  setTheme("dark");
+if (initTheme !== "dark") {
+  setTheme("light");
 }
 
 nav.querySelectorAll("a").forEach((navLink) => {
@@ -24,34 +35,49 @@ themeButton.addEventListener("click", (_) => {
 
 function setTheme(theme = null) {
   const currentTheme = htmlElement.dataset["theme"];
+  console.log(currentTheme);
+
   if (!theme) {
-    theme = !currentTheme || currentTheme === "light" ? "dark" : "light";
+    theme = !currentTheme || currentTheme === "dark" ? "light" : "dark";
   }
 
   htmlElement.dataset.theme = theme;
   themeButton.firstElementChild.setAttribute(
     "src",
-    theme === "dark" ? "./assets/sun.svg" : "./assets/moon-stars.svg"
+    theme === "light" ? "./assets/moon-stars.svg" : "./assets/sun.svg"
   );
+
+  console.log(theme);
+
   localStorage.setItem("theme", theme);
 }
 
 let currWidth = window.innerWidth;
-window.addEventListener("resize", (e) => {
+window.addEventListener("resize", (_) => {
   currWidth = window.innerWidth;
 });
 
 function toggleSideNavigation(setExapnded) {
   if (currWidth > 1200) return;
-  if (!setExapnded) setExapnded = nav.classList.contains("show") ? false : true;
+  if (setExapnded === null || setExapnded === undefined)
+    setExapnded = nav.classList.contains("show") ? false : true;
+  console.log(setExapnded);
 
   if (setExapnded) {
     nav.classList.add("show");
     menuButton.firstElementChild.setAttribute("src", "./assets/x.svg");
-    overlay.classList.add("show");
+    setOverlay(true);
   } else {
     nav.classList.remove("show");
     menuButton.firstElementChild.setAttribute("src", "./assets/list.svg");
+    setOverlay(false);
+  }
+}
+
+function setOverlay(show) {
+  if (show) {
+    overlay.classList.add("show");
+  } else {
     overlay.classList.remove("show");
   }
 }
@@ -101,5 +127,48 @@ menuButton.addEventListener("click", (_) => {
 overlay.addEventListener("click", (_) => {
   if (overlay.classList.contains("show")) {
     toggleSideNavigation(false);
+
+    Object.values(modals).forEach((el) => {
+      el.classList.remove("show");
+      overlay.classList.remove("show");
+    });
+
+    nav.style = "";
+    menuButton.style = "";
+    document.body.style = "overflow: auto";
   }
 });
+
+/**
+ *
+ * @param {HTMLElement} el
+ * @param {*} setShow
+ */
+function toggleModal(id, setShow = null) {
+  let shouldShow = null;
+  const el = document.getElementById(`${id}-modal`);
+  if (!el) {
+    console.error("No id was passed");
+    return;
+  }
+
+  if (setShow) {
+    shouldShow = setShow;
+  } else {
+    shouldShow = !el.classList.contains("show");
+  }
+
+  if (shouldShow) {
+    el.classList.add("show");
+    setOverlay(true);
+    document.body.style = "overflow: hidden";
+    nav.style = "z-index: 98;";
+    menuButton.style = "z-index: 98;";
+  } else {
+    el.classList.remove("show");
+    setOverlay(false);
+    document.body.style = "overflow: auto";
+    nav.style = "";
+    menuButton.style = "";
+  }
+}

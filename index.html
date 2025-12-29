@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,6 +41,7 @@
         <a href="#" class="nav-item active">Home</a>
         <a href="#about" class="nav-item">About</a>
         <a href="#tech" class="nav-item">Tech</a>
+        <a href="#experience" class="nav-item">Experience</a>
         <a href="#portfolio" class="nav-item">Portfolio</a>
         <a href="#contact" class="nav-item">Contact</a>
       </div>
@@ -49,7 +50,7 @@
         class="theme-btn"
         aria-label="Button to toggle theme from light to dark"
       >
-        <img src="./assets/moon-stars.svg" alt="" aria-hidden="true" />
+        <img src="./assets/sun.svg" alt="" aria-hidden="true" />
       </button>
     </nav>
 
@@ -178,6 +179,7 @@
           just get into a flow and so far only good things follow that!
         </p>
       </section>
+
       <section class="tech-section">
         <h1 id="tech" class="section-header">Tech Stack</h1>
         <div class="tech-stack">
@@ -198,6 +200,12 @@
             <img src="./assets/csharp.svg" alt="" />
             <!-- name of tech -->
             <small>C#</small>
+          </div>
+          <div class="tech">
+            <!-- img of svg -->
+            <img src="./assets/azure_logo.svg" alt="" />
+            <!-- name of tech -->
+            <small>Azure</small>
           </div>
           <div class="tech">
             <!-- img of svg -->
@@ -243,13 +251,115 @@
           </div>
         </div>
       </section>
+
+      <section class="experience-section">
+        <h1 id="experience" class="section-header">Experience</h1>
+
+        <div class="experience-item">
+          <h2 class="work-header">
+            Web Application Developer
+            <span style="display: flex; align-items: center">
+              <small class="text-faded">Deployed Resources</small>
+              <span class="dates"> January 2023 - October 2025 </span>
+            </span>
+          </h2>
+
+          <div class="work-description">
+            - Maintained an internal inventory system in C#/ASP.NET Core and
+            React.js to allow for rapid deployment of resources. - Supported a
+            tracking system written in React.js that utilized OpenLayers to be
+            able to allow for auditing capabilities of a facility. - Created an
+            internal development tool in React.js to better envision data
+            structures and troubleshoot admin issues that exist in WebEOC. -
+            Developed custom software solutions in WebEOC to manage multiple
+            facilities. - Designed and implemented a custom connector for the
+            WebEOC REST API in Azure. - Engineered and deployed an application
+            that streamlined workflows for DNA processing. - Reduced the amount
+            of dependencies by creating a project that only housed the required
+            dependencies and designed lightweight libraries that would allow for
+            backwards compatibility with those that are missing.
+          </div>
+        </div>
+        <div class="experience-item">
+          <h2 class="work-header">
+            Application Developer
+            <span style="display: flex">
+              <small class="text-faded">Superior Automotive Group</small>
+              <span class="dates">September 2021 - January 2023</span>
+            </span>
+          </h2>
+
+          <div class="work-description">
+            - Developed an in-house web application, built with Angular.js,
+            Bootstrap, MariaDB, and Node.js (with Express), that allowed for
+            better communication and efficiency between departments. - Led
+            integration with a third-party key management system. - Spearheaded
+            the migration of the door access control system from a SDK to a REST
+            API.
+          </div>
+        </div>
+      </section>
+
       <section class="portfolio-section">
         <h1 id="portfolio" class="section-header">Portfolio</h1>
-        <img src="./assets/InProgress.svg" alt="" />
+
+        <div class="project" id="resource-mate">
+          <div class="project-header">
+            <h2>Resource Mate</h2>
+            <div class="project-tech-stack">
+              <div class="tech" title="Angular">
+                <!-- img of svg -->
+                <img src="./assets/angular_gradient.png" alt="" />
+              </div>
+              <div class="tech" title="C#">
+                <!-- img of svg -->
+                <img src="./assets/csharp.svg" alt="" />
+              </div>
+              <div class="tech" title="MariaDB">
+                <!-- img of svg -->
+                <img src="./assets/mariadb.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="project-brief-description">
+            <span>
+              A place for social workers to centralize all the resources
+              available to them. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Exercitationem vitae deserunt sequi. Quod, quae!
+              Officia nam, voluptas quam fuga culpa soluta. In officia cum
+              veniam eum ut nam tempora facilis! Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Neque aperiam cupiditate repellat,
+              explicabo quo incidunt, sed qui ad facere iste enim perspiciatis
+              aliquam maxime vel velit eius, necessitatibus placeat
+              exercitationem!
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-box-arrow-up-right modal-disclosure"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <hr class="project-seperator" />
+
+        <!-- <img src="./assets/InProgress.svg" alt="" />
         <p class="text-faded">
           Great things are happening! Please check back again later.
         </p>
+        <button onclick="toggleModal('social-work-modal')">show modal</button> -->
       </section>
+
       <section class="contact-section" style="text-align: center">
         <h1 id="contact" class="section-header">Contact</h1>
         <p class="text-faded">
@@ -326,6 +436,30 @@
         />
       </svg>
     </a>
+
+    <div id="resource-mate-modal" class="modal">
+      <div class="modal-header">
+        <h2>Resource Mate</h2>
+        <button class="close" onclick="toggleModal('resource-mate')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        A place for social workers to centralize all the resources available to
+        them.
+      </div>
+    </div>
   </body>
   <script src="./main.js"></script>
 </html>
