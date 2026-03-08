@@ -12,8 +12,9 @@
   --background-color: white;
 
   font-size: 16px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
   color: var(--font-color) !important;
   background-color: var(--background-color);
 
@@ -119,7 +120,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  bottom: 0.5rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translate(-50%);
 
@@ -299,6 +300,7 @@ p {
 
 .hero {
   min-height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
